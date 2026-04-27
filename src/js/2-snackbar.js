@@ -15,6 +15,8 @@ function handleSubmit(event) {
   createPromise(delayValue, stateValue)
     .then(showSuccess)
     .catch(showError);
+
+  event.currentTarget.reset();
 }
 
 function createPromise(delay, state) {
@@ -28,13 +30,13 @@ function createPromise(delay, state) {
 function showSuccess(delay) {
   iziToast.success({
     message: `✅ Fulfilled promise in ${delay}ms`,
-    position: 'topCenter',
+    position: 'topRight',
   });
 }
 
 function showError(delay) {
   iziToast.error({
     message: `❌ Rejected promise in ${delay}ms`,
-    position: 'topCenter',
+    position: 'topRight',
   });
 }
