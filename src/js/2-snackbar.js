@@ -16,7 +16,9 @@ function handleSubmit(event) {
     .then(showSuccess)
     .catch(showError);
 
-  event.currentTarget.reset();
+  delay.value = '';
+  const radioButtons = event.currentTarget.querySelectorAll('input[name="state"]');
+  radioButtons.forEach(radio => radio.checked = false);
 }
 
 function createPromise(delay, state) {
